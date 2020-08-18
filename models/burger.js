@@ -14,7 +14,7 @@ var burger = {
     });
   },
   update: function(objColVals, condition, cb) {
-    condition = "id="+req.params.id
+    // condition = "id="+req.params.id
     orm.update("burgers", {devoured:true}, condition, function(res) {
       cb(res);
     });
