@@ -22,4 +22,4 @@ var burger = {
 };
 
 // Export the database functions for the controller (connection.js).
-module.exports = orm;
+module.exports = burger;

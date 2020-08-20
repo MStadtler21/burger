@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
         host: "localhost",
         user: "root",
         port: 3306,
-        password: "root",
+        password: "FCBayern3!",
         database: "burgers_db"
     });
 };
