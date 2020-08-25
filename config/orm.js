@@ -9,7 +9,7 @@ var connection = require("../config/connection.js");
 function printQuestionMarks(num) {
   var arr = [];
 
-  for (var i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     arr.push("?");
   }
 
@@ -40,7 +40,7 @@ function objToSql(ob) {
 }
 
 // Object for all our SQL statement functions.
-var orm = {
+const orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
@@ -80,6 +80,19 @@ var orm = {
     queryString += condition;
 
     console.log(queryString);
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
+  },
+  delete: function(table, condition, cb) {
+    let queryString = "DELETE FROM " + table;
+    queryString += " WHERE ";
+    queryString += condition;
+
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
